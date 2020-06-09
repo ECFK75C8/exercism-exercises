@@ -1,9 +1,9 @@
 extension on Iterable {
-  String joinOrNull() => isEmpty ? null : join();
+  String joinOrNull() => isNotEmpty ? join() : null;
 }
 
 class Raindrops {
-  Map<int, String> _soundMap = {3: 'Pling', 5: 'Plang', 7: 'Plong'};
+  final _soundMap = const {3: 'Pling', 5: 'Plang', 7: 'Plong'};
 
   String convert(int number) =>
       _soundMap.keys
