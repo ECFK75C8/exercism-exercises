@@ -1,5 +1,5 @@
 class RnaTranscription {
-  final nucleotideComplementMap = const {
+  static const nucleotides = {
     'G': 'C',
     'C': 'G',
     'T': 'A',
@@ -7,7 +7,7 @@ class RnaTranscription {
   };
 
   String toRna(String dna) =>
-      List.generate(dna.length, (index) => nucleotideComplementMap[dna[index]],
+      List.generate(dna.length, (index) => nucleotides[dna[index]],
               growable: false)
           .join();
 }
