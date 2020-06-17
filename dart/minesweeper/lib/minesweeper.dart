@@ -16,7 +16,7 @@ class Minesweeper {
   int get rows => mines.length;
   int get cols => mines[0].length;
 
-  int countNeighbor(int x, int y) {
+  int countMinesAround(int x, int y) {
     var total = 0;
 
     if (mines[x][y] == '*')
@@ -45,7 +45,7 @@ class Minesweeper {
     //     .entries
     //     .map((rows) {
     //       return rows.value.asMap().entries.map((cols) {
-    //         var count = countNeighbor(rows.key, cols.key);
+    //         var count = countMinesAround(rows.key, cols.key);
     //         return (count == -1)
     //             ? cols.value
     //             : (count == 0) ? ' ' : count.toString();
@@ -59,7 +59,7 @@ class Minesweeper {
     for (var i = 0; i < rows; i++) {
       for (var j = 0; j < cols; j++) {
         if (newMines[i][j] != '*') {
-          var count = countNeighbor(i, j);
+          var count = countMinesAround(i, j);
           newMines[i][j] = (count == 0) ? ' ' : count.toString();
         }
       }
