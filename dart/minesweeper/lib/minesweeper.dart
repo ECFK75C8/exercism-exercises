@@ -13,8 +13,8 @@ class Minesweeper {
 
   Minesweeper([this.mines]);
 
-  int get rows => mines.length;
-  int get cols => mines[0].length;
+  int get rows => mines?.length ?? 0;
+  int get cols => rows > 0 ? mines[0].length : 0;
 
   int countMinesAround(int x, int y) {
     var total = 0;
