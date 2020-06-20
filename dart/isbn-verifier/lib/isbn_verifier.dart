@@ -19,11 +19,9 @@ bool isValid(String isbn) {
 
   return isbn
               .split('')
-              .reversed
-              .toList()
               .asMap()
               .entries
-              .map((entry) => (entry.key + 1) * entry.value.intValue)
+              .map((entry) => (10 - entry.key) * entry.value.intValue)
               .fold<int>(0, (prev, element) => prev + element) %
           11 ==
       0;
