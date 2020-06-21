@@ -8,18 +8,12 @@ class Robot {
 
   int get index => orientation.index;
 
-  var cordinates = [
-    Orientation.north,
-    Orientation.east,
-    Orientation.south,
-    Orientation.west
-  ];
+  void turnRight() => orientation = (index == Orientation.values.length - 1)
+      ? Orientation.values.first
+      : Orientation.values[index + 1];
 
-  void moveRight() => orientation =
-      (index == cordinates.length - 1) ? cordinates[0] : cordinates[index + 1];
-
-  void moveLeft() => orientation =
-      (index == 0) ? cordinates[cordinates.length - 1] : cordinates[index - 1];
+  void turnLeft() => orientation =
+      (index == 0) ? Orientation.values.last : Orientation.values[index - 1];
 
   void advance() {
     if (index == 0)
@@ -37,9 +31,9 @@ class Robot {
       if (commands[i] == 'A')
         advance();
       else if (commands[i] == 'R')
-        moveRight();
+        turnRight();
       else if (commands[i] == 'L')
-        moveLeft();
+        turnLeft();
       else
         throw ArgumentError('Unspported command');
     }
